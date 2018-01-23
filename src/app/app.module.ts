@@ -1,16 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FotoModule } from './foto/foto.module';
+import { FotoModule } from './component/foto/foto.module';
+import { CardModule } from './component/card/card.module';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { ListagemComponent } from './pages/listagem/listagem.component';
+import { roteamento } from './app.routes';
+import { ErrorComponent } from './pages/error/error.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListagemComponent,
+    CadastroComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    FotoModule
+    HttpModule,
+    FotoModule,
+    CardModule,
+    roteamento
   ],
   providers: [],
   bootstrap: [AppComponent]

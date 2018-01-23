@@ -1,0 +1,19 @@
+<div class="">
+  <form>
+    <div class="input-field col s12 l12">
+      <i class="material-icons prefix">search</i>
+      <input #inputBusca (keyup)="0" id="search" type="search" required>
+      <label for="search">Search</label>
+    </div>
+  </form>
+</div>
+<div class="row" *ngIf="inputBusca.value">
+  <div class="s12">
+    <h5>Voce está procurando por: {{ inputBusca.value }}</h5>
+  </div>
+</div>
+<div class="row">
+  <div card class="col s12 m4 l3 xl3" [titulo]="foto.titulo" *ngFor="let foto of fotos | filtarTitulo:inputBusca.value">
+    <foto [url]="foto.url" [titulo]="foto.titulo"></foto>
+  </div>
+</div>
