@@ -1,3 +1,40 @@
-<p>
-  cadastro works!
-</p>
+<div class="row">
+  <form [formGroup]="formCadastro" (submit)="salvar($event)">
+    <div class="input-field col m6">
+      <input 
+          type="text" 
+          id="titulo" 
+          name="titulo" 
+          formControlName="titulo" 
+          [(ngModel)]="foto.titulo">
+      <label for="titulo">Titulo</label>
+    </div>
+    <div *ngIf="formCadastro.controls.titulo.invalid">
+      validação
+    </div>
+    <div class="input-field col m6">
+      <input type="text" id="url" name="url" formControlName="url" [(ngModel)]="foto.url">
+      <label for="url">Url</label>
+    </div>
+    <div class="input-field col m12">
+      <textarea 
+        class="materialize-textarea" 
+        name="descricao"
+        formControlName="descricao"
+        id="descricao" 
+        cols="30" 
+        rows="10"
+        [(ngModel)]="foto.descricao">
+      </textarea>
+      <label for="descricao">Descrição</label>
+    </div>
+    <div class="input-field col m12">
+      <button class="btn waves-effect waves-light green lighten-2" type="submit">
+          <i class="material-icons right">send</i>Salvar
+      </button>
+      <button class="btn waves-effect waves-light green lighten-5 black-text" [routerLink]="['']">
+          <i class="material-icons">arrow_back</i> Voltar
+      </button>
+    </div>
+  </form> 
+</div>
